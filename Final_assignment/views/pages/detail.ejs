@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+   </head>
+<body>
+	<%- include('../partials/navbar'); %>
+    
+    <div class="collection_section">
+    	<div class="container">
+    		<h1 class="new_text">Product Name: <strong><%=product.product_name%></strong></h1>
+            <div><span class="product_price_detail">Price: <%= product.product_price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) %></span></div>
+    	</div>
+    </div>
+    <div class="collectipn_section_3 layuot_padding">
+    	<div class="container">
+    		<div class="racing_shoes">
+    			<div class="row">
+    				<div class="col-md-8">
+                        <% const product_img = Buffer.from(product.product_img).toString('base64'); %>
+    					<div class="shoes-img3"><img src="data:image/jpg;base64,<%=product_img%> "></div>
+    				</div>
+    				<div class="col-md-4">
+    					<div class="detail_product">
+                            <h1 class="text">Product Description</h1>
+                            <h3 class="text"><%= product.product_detail%></h3>
+                        </div>
+                        <button class="add-to-cart seemore" data-product-id="<%= product.id %>">Add to Cart</button>
+                    </div>
+                    <div class="center-div success-message "></div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+    <%- include('../partials/footer'); %>
+</body>
+<!-- javascript --> 
+
+<script src="/js/jquery.min.js"></script>
+
+<script src="/js/addtocart.js"></script>
+
+<script src="/js/countproducttocart.js"> </script> 
+
+</html>
+
